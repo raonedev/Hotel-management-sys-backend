@@ -1,0 +1,13 @@
+// routes/bookingRoutes.js
+const express = require('express');
+const router = express.Router();
+const bookingController = require('../controllers/bookingController'); // Import the booking controller
+
+// Define routes and link them to controller functions for bookings
+router.post('/', bookingController.createBooking);
+router.get('/', bookingController.getAllBookings);
+router.get('/:id', bookingController.getBookingById);
+router.put('/:id', bookingController.updateBooking);
+router.delete('/:id', bookingController.deleteBooking);
+
+module.exports = router;
