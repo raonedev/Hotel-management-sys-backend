@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const employeeController = require('../controllers/employeeController'); // Import the employee controller
+const { protect, authorize } = require('../middleware/authMiddleware');
 
 // Define routes and link them to controller functions for employees
 router.post('/',protect, authorize('admin'), employeeController.createEmployee); // Route for creating a new employee
