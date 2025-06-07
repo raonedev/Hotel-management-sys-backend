@@ -8,6 +8,8 @@ const bookingRoutes = require('./routes/bookingRoutes')
 const employeeRoutes = require('./routes/employeeRoutes')
 const salaryRoutes = require('./routes/salaryRoutes')
 const authRoutes = require('./routes/authRoutes')
+// Load environment variables
+require('dotenv').config();
 
 
 const app = express();
@@ -21,7 +23,7 @@ app.use(cors()); // Enable CORS for all routes
 // Replace 'mongodb://localhost:27017/hotel_management' with your MongoDB connection string
 // If you're running MongoDB locally, this default string should work.
 // For production, consider using environment variables for your connection string.
-const mongoURI = 'mongodb://localhost:27017/hotel_management';
+const mongoURI = `${process.env.MONGODB_URI}/hotel_management`;
 
 mongoose.connect(mongoURI)
     .then(() => console.log('MongoDB connected successfully!'))
