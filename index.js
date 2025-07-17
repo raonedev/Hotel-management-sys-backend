@@ -35,6 +35,10 @@ app.use('/api/booking',bookingRoutes);
 app.use('/api/epmloyee',employeeRoutes);
 app.use('/api/salary',salaryRoutes);
 app.use('/api/user',authRoutes);
+app.get('/', (req, res) => {
+  res.send('✅ API is working!');
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
